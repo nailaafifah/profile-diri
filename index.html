@@ -406,11 +406,11 @@ let dataLang={
 
         <h3>🧠 Quiz App</h3>
         <p>
-        Aplikasi kuis dengan beberapa kategori seperti sejarah,geografi,ibukota, dan lain-lain.dan juga boleh dipilih secara acak.
+        Aplikasi kuis dengan beberapa kategori seperti teknologi, umum, dan logika.
         </p>
 
         <div style="margin-top:15px;">
-            <a href="https://nailaafifah.github.io/quiz-zone-game/" target="_blank">
+            <a href="#" target="_blank">
                 <button style="padding:8px 12px; background:#e24a9e; color:white; border:none; border-radius:6px; cursor:pointer;">
                     Lihat Project
                 </button>
@@ -466,11 +466,11 @@ let dataLang={
             SMP Negeri 2 Sigli<br>
             SD Negeri 2 Teubeng</p>`,
 
-        contact:`<h2>Contact</h2>
+        contact:`<h2>Kontak</h2>
         <p>Email: nailaafifah25106@gmail.com</p>
         <p>Instagram: <a href="https://instagram.com/naiilaafifah" target="_blank">@naiilaafifah</a></p>
         <p>WhatsApp: <strong>083197198448</strong></p>
-    },
+    };
 
     en:{
         about:`<h2>About Me</h2>
@@ -512,7 +512,7 @@ let dataLang={
         </p>
 
         <div style="margin-top:15px;">
-            <a href="https://nailaafifah.github.io/quiz-zone-game/" target="_blank">
+            <a href="#" target="_blank">
                 <button style="padding:8px 12px; background:#e24a9e; color:white; border:none; border-radius:6px; cursor:pointer;">
                     View Project
                 </button>
@@ -553,18 +553,15 @@ let dataLang={
         SD Negeri 2 Teubeng</p>`,
 
         contact:`<h2>Contact</h2>
-<p>Email: nailaafifah25106@gmail.com</p>
-<p>Instagram: <a href="https://instagram.com/naiilaafifah" target="_blank">@naiilaafifah</a></p>
-<p>WhatsApp: <strong>083197198448</strong></p>
+        <p>Email: nailaafifah25106@gmail.com</p>
+        <p>Instagram: <a href="https://instagram.com/naiilaafifah" target="_blank">@naiilaafifah</a></p>
+        <p>WhatsApp: <strong>083197198448</strong></p>
 };
 
     let panel=document.getElementById("panel");
- panel.classList.remove("show");
-
-setTimeout(()=>{
     panel.innerHTML = dataLang[lang][id];
     panel.classList.add("show");
-}, 100);
+}
 
 window.onload = function () {
     document.getElementById("panel").innerHTML = "";

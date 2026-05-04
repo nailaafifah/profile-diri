@@ -70,12 +70,15 @@ nav ul li button.active{
     padding-top:60px;
 }
 
+/* FOTO + LINGKARAN PINK */
 .hero img{
     width:140px;
     height:140px;
     border-radius:50%;
     object-fit:cover;
-    transform:rotate(0deg);
+    border:5px solid #e24a9e;
+    padding:5px;
+    background:transparent;
 }
 
 .hero h1{margin-top:10px;}
@@ -113,15 +116,10 @@ nav ul li button.active{
     margin-bottom:10px;
 }
 
-/* 🔥 SKILL BAR */
+/* SKILL */
 .skill{
     margin:10px 0;
     text-align:left;
-}
-
-.skill-name{
-    font-size:14px;
-    margin-bottom:4px;
 }
 
 .skill-bar{
@@ -135,12 +133,6 @@ nav ul li button.active{
 .skill-fill{
     height:100%;
     background:var(--primary);
-    border-radius:10px;
-}
-
-/* dark mode */
-body.dark .skill-bar{
-    background:#444;
 }
 
 /* FOOTER */
@@ -152,9 +144,7 @@ footer{
 }
 
 /* MENU */
-.menu{
-    position:relative;
-}
+.menu{position:relative;}
 
 .menu button{
     background:none;
@@ -179,10 +169,6 @@ footer{
     cursor:pointer;
 }
 
-.dropdown p:hover{
-    background:#eee;
-}
-
 /* DARK MODE */
 body.dark{
     background:#121212;
@@ -194,98 +180,80 @@ body.dark footer{
     background:#1e1e1e;
 }
 
-body.dark p,
-body.dark h1,
-body.dark h2,
-body.dark h3,
-body.dark span,
-body.dark a{
-    color:#eee !important;
-}
-
-body.dark .dropdown{
-    background:#2a2a2a;
-}
-
-body.dark .dropdown p{
-    color:#fff;
-}
-
 body.dark .hero{
     background:#121212;
 }
 
-body.dark .menu button{
-    color:#fff;
+body.dark .hero p{
+    color:#eee !important;
 }
 
-@media (max-width: 768px) {
+body.dark p{
+    color:#eee !important;
+}
 
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 12px 15px;
+body.dark h3{
+    color:#eee !important;
+}
+
+body.dark .panel{
+    color:#eee;
+}
+
+body.dark .panel p{
+    color:#ccc;
+}
+
+body.dark .panel div{
+    color:#eee;
+}
+
+body.dark .panel div[style*="background:#fff"]{
+    background:#1e1e1e !important;
+    color:#eee !important;
+}
+
+body.dark .panel div[style*="background:#fff"] p,
+body.dark .panel div[style*="background:#fff"] h3{
+    color:#eee !important;
+}
+
+/* MOBILE */
+.mobile-only{display:none;}
+
+@media (max-width:768px){
+
+    nav ul{display:none !important;}
+
+    .mobile-only{display:block;}
+
+    .dropdown{
+        position:fixed;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        width:80%;
+        text-align:center;
+        padding:20px;
+        border-radius:20px;
     }
 
-    nav ul {
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
-    }
-
-    nav ul li button {
-        font-size: 13px;
-    }
-
-    .hero {
-        height: auto;
-        padding: 110px 15px 30px;
-    }
-
-    .hero img {
-        width: 110px;
-        height: 110px;
-    }
-
-    .content {
-        padding: 0 15px;
-    }
-
-    .panel {
-        margin-top: -30px;
-        padding: 15px;
-    }
-
-    /* project jadi 1 kolom di HP */
-    .panel div[style*="display:flex"] {
-        flex-direction: column !important;
-        gap: 10px !important;
-    }
-
-    button {
-        font-size: 13px;
-        padding: 8px 10px;
+    .dropdown p{
+        font-size:18px;
+        padding:12px;
     }
 }
 
-@media (max-width: 480px) {
-
-    nav h2 {
-        font-size: 18px;
-    }
-
-    .hero h1 {
-        font-size: 20px;
-    }
-
-    .hero p {
-        font-size: 14px;
-    }
-
-    .panel {
-        font-size: 14px;
-    }
+/* OVERLAY */
+#overlay{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    z-index:999;
 }
 </style>
 </head>
@@ -293,18 +261,32 @@ body.dark .menu button{
 <body>
 
 <nav>
-    <h2>Naila Afifah</h2>
-    <ul>
+    <h2>Profile</h2>
+
+    <ul class="nav-links">
         <li><button class="active" onclick="show('about', this)">Tentang</button></li>
         <li><button onclick="show('project', this)">Project</button></li>
         <li><button onclick="show('skill', this)">Keahlian</button></li>
-        <li><button onclick="show('pengalaman', this)">Pengalaman organisasi</button></li>
+        <li><button onclick="show('pengalaman', this)">Pengalaman</button></li>
         <li><button onclick="show('edu', this)">Pendidikan</button></li>
         <li><button onclick="show('contact', this)">Kontak</button></li>
     </ul>
+
     <div class="menu">
         <button onclick="toggleMenu()">⋮</button>
         <div id="dropdown" class="dropdown">
+
+            <!-- MENU KHUSUS HP -->
+            <p class="mobile-only" onclick="show('about'); closeMenu()">Tentang</p>
+            <p class="mobile-only" onclick="show('project'); closeMenu()">Project</p>
+            <p class="mobile-only" onclick="show('skill'); closeMenu()">Keahlian</p>
+            <p class="mobile-only" onclick="show('pengalaman'); closeMenu()">Pengalaman</p>
+            <p class="mobile-only" onclick="show('edu'); closeMenu()">Pendidikan</p>
+            <p class="mobile-only" onclick="show('contact'); closeMenu()">Kontak</p>
+
+            <hr class="mobile-only">
+
+            <!-- INI DI LUAR -->
             <p onclick="toggleDark(); closeMenu()">🌙 Mode Gelap</p>
             <p onclick="setLang('id'); closeMenu()">🇮🇩 Indonesia</p>
             <p onclick="setLang('en'); closeMenu()">🇬🇧 English</p>
@@ -312,10 +294,22 @@ body.dark .menu button{
     </div>
 </nav>
 
+<!-- OVERLAY -->
+<div id="overlay" onclick="closeMenu()"></div>
+
 <header class="hero">
-    <img src="na.jpg" alt="foto profil" style="width:140px;height:140px;border-radius:50%;object-fit:cover;" onerror="this.src='https://via.placeholder.com/140?text=Foto';">
-    <h1>Naila Afifah</h1>
-    <p>Mahasiswa Teknik Informatika</p>
+    <img src="na.jpg" onerror="this.src='https://via.placeholder.com/140'">
+    <p style="margin-top:10px;font-size:18px;font-weight:bold;color:#333;">
+    Hello,welcome👋
+    </p>
+
+    <p style="margin-top:5px;font-size:15px;color:#666;">
+    Saya, Naila Afifah
+    </p>
+
+    <p style="margin-top:5px;font-size:15px;color:#666;">
+    Mahasiswa Teknik Informatika
+    </p>
 </header>
 
 <div class="content">
@@ -327,11 +321,20 @@ body.dark .menu button{
 <script>
 function toggleMenu(){
     let d = document.getElementById("dropdown");
-    d.style.display = d.style.display === "block" ? "none" : "block";
+    let o = document.getElementById("overlay");
+
+    if(d.style.display === "block"){
+        d.style.display = "none";
+        o.style.display = "none";
+    }else{
+        d.style.display = "block";
+        o.style.display = "block";
+    }
 }
 
 function closeMenu(){
     document.getElementById("dropdown").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
 }
 
 function toggleDark(){
@@ -347,8 +350,18 @@ function setLang(l){
 }
 
 function show(id,btn){
-
     currentPage=id;
+
+    // TAMBAHKAN INI
+    document.querySelectorAll("nav button")
+    .forEach(b=>b.classList.remove("active"));
+
+    document.querySelectorAll("nav button")
+    .forEach(b=>{
+        if(b.innerText.toLowerCase().includes(id)){
+            b.classList.add("active");
+        }
+    });
 
     if(btn){
         document.querySelectorAll("nav button")
@@ -356,7 +369,7 @@ function show(id,btn){
         btn.classList.add("active");
     }
 
-  let dataLang={
+let dataLang={
     id:{
         about:`<h2>Tentang Saya</h2>
         <p>Saya adalah mahasiswa informatika yang sedang belajar di dunia teknologi, 
@@ -410,27 +423,27 @@ function show(id,btn){
 
         skill:`<h2>Keahlian</h2>
         <div class="skill">
-        <div class="skill-name">Microsoft Word (Mahir)</div>
+        <div class="skill-name">Microsoft Word </div>
         <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
         </div>
 
         <div class="skill">
-        <div class="skill-name">PowerPoint (Mahir)</div>
+        <div class="skill-name">PowerPoint </div>
         <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
         </div>
 
         <div class="skill">
-        <div class="skill-name">HTML (Menengah)</div>
+        <div class="skill-name">HTML </div>
         <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
         </div>
 
         <div class="skill">
-        <div class="skill-name">CSS (Menengah)</div>
+        <div class="skill-name">CSS </div>
         <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
         </div>
 
         <div class="skill">
-        <div class="skill-name">PHP (Dasar)</div>
+        <div class="skill-name">PHP </div>
         <div class="skill-bar"><div class="skill-fill" style="width:40%"></div></div>
         </div>`,
 
@@ -555,14 +568,10 @@ function show(id,btn){
         </p>`
     }
 };
+
     let panel=document.getElementById("panel");
-
-    panel.classList.remove("show");
-
-    setTimeout(()=>{
-        panel.innerHTML=dataLang[lang][id];
-        panel.classList.add("show");
-    },150);
+    panel.innerHTML = dataLang[lang][id];
+    panel.classList.add("show");
 }
 
 window.onload = function () {

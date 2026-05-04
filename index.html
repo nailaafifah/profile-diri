@@ -570,9 +570,12 @@ Click here
 };
 
     let panel=document.getElementById("panel");
+ panel.classList.remove("show");
+
+setTimeout(()=>{
     panel.innerHTML = dataLang[lang][id];
     panel.classList.add("show");
-}
+}, 100);
 
 window.onload = function () {
     document.getElementById("panel").innerHTML = "";

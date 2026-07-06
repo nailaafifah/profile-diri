@@ -833,8 +833,24 @@ footer span {
 }
 
 /* MENU */
+/* MENU */
 .menu {
     position: relative;
+}
+
+.menu button {
+    background: rgba(108, 99, 255, 0.08);
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    color: #000000;
+}
+
+.menu{
+    display:none;
 }
 
 .menu button {
@@ -851,6 +867,20 @@ footer span {
 .menu button:hover {
     background: rgba(108, 99, 255, 0.15);
     transform: scale(1.05);
+}
+
+.menu-btn{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:12px;
+    background:var(--primary-gradient);
+    color:#fff;
+    font-size:24px;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .dropdown {
@@ -1092,6 +1122,14 @@ body.dark .section-panel:hover::before {
 
 @media (max-width:768px){
 
+    .menu{
+    display:block;
+}
+
+.nav-links{
+    display:none !important;
+}
+
 nav{
     padding:12px 20px;
 }
@@ -1218,7 +1256,7 @@ nav h2{
     </ul>
 
     <div class="menu">
-        <button onclick="toggleMenu()">⋮</button>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
         <div id="dropdown" class="dropdown">
             <p class="mobile-only" onclick="scrollToSection('about'); closeMenu()">Tentang</p>
             <p class="mobile-only" onclick="scrollToSection('project'); closeMenu()">Project</p>

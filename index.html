@@ -1122,16 +1122,12 @@ body.dark .section-panel:hover::before {
 
 @media (max-width:768px){
 
-    .mobile-only{
+    .menu{
     display:block;
 }
 
 .nav-links{
     display:none !important;
-}
-
-.menu{
-    display:block;
 }
 
 nav{
@@ -1262,7 +1258,7 @@ nav h2{
     <div class="menu">
         <button class="menu-btn" onclick="toggleMenu()">☰</button>
         <div id="dropdown" class="dropdown">
-            <p onclick="scrollToSection('about'); closeMenu()">Tentang</p>
+            <p class="mobile-only" onclick="scrollToSection('about'); closeMenu()">Tentang</p>
             <p class="mobile-only" onclick="scrollToSection('project'); closeMenu()">Project</p>
             <p class="mobile-only" onclick="scrollToSection('skill'); closeMenu(); animateSkills()">Keahlian</p>
             <p class="mobile-only" onclick="scrollToSection('pengalaman'); closeMenu()">Pengalaman</p>

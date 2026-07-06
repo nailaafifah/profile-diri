@@ -846,7 +846,7 @@ footer span {
     backdrop-filter: blur(20px);
     border-radius: 16px;
     display: none;
-    min-width: 170px;
+    min-width: 210px;
     z-index: 9999;
     border: 1px solid rgba(108, 99, 255, 0.08);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
@@ -861,6 +861,9 @@ footer span {
     color: #000000;
     transition: all 0.2s ease;
     margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .dropdown p:hover {
@@ -1081,7 +1084,7 @@ body.dark .section-panel:hover::before {
     }
 
     .mobile-only {
-        display: block;
+        display: flex !important;
     }
 
     .hero {
@@ -1149,6 +1152,7 @@ body.dark .section-panel:hover::before {
     .dropdown p {
         font-size: 16px;
         padding: 14px 18px;
+        justify-content: center;
     }
 
     .edu-list li {
@@ -1226,12 +1230,11 @@ body.dark .section-panel:hover::before {
     <div class="menu">
         <button onclick="toggleMenu()">⋮</button>
         <div id="dropdown" class="dropdown">
-            <p class="mobile-only" onclick="scrollToSection('about'); closeMenu()">Tentang</p>
-            <p class="mobile-only" onclick="scrollToSection('project'); closeMenu()">Project</p>
-            <p class="mobile-only" onclick="scrollToSection('skill'); closeMenu(); animateSkills()">Keahlian</p>
-            <p class="mobile-only" onclick="scrollToSection('pengalaman'); closeMenu()">Pengalaman</p>
-            <p class="mobile-only" onclick="scrollToSection('edu'); closeMenu()">Pendidikan</p>
-            <p class="mobile-only" onclick="scrollToSection('contact'); closeMenu()">Kontak</p>
+            <p class="mobile-only" onclick="scrollToSection('project'); closeMenu()">💻 Project</p>
+            <p class="mobile-only" onclick="scrollToSection('skill'); closeMenu(); animateSkills()">⭐ Keahlian</p>
+            <p class="mobile-only" onclick="scrollToSection('pengalaman'); closeMenu()">📋 Pengalaman</p>
+            <p class="mobile-only" onclick="scrollToSection('edu'); closeMenu()">🎓 Pendidikan</p>
+            <p class="mobile-only" onclick="scrollToSection('contact'); closeMenu()">📞 Kontak</p>
             <hr class="mobile-only">
             <p onclick="toggleDark(); closeMenu()">🌙 Mode Gelap</p>
             <p onclick="setLang('id'); closeMenu()">🇮🇩 Indonesia</p>

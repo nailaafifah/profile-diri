@@ -864,56 +864,72 @@ footer span {
 .menu button {
     background: rgba(108, 99, 255, 0.08);
     border: none;
-    font-size: 22px;
+    font-size: 24px;
     cursor: pointer;
     padding: 6px 12px;
-    border-radius: 50px;
+    border-radius: 8px;
     transition: all 0.3s ease;
     color: #000000;
 }
 
 .menu button:hover {
     background: rgba(108, 99, 255, 0.15);
-    transform: scale(1.05);
 }
 
-.dropdown {
-    position: absolute;
-    right: 0;
-    top: 40px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    border-radius: 16px;
+/* DROPDOWN MENU - KHUSUS HP */
+#dropdown {
     display: none;
-    min-width: 200px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    min-width: 280px;
+    max-width: 340px;
+    width: 90%;
     z-index: 9999;
-    border: 1px solid rgba(108, 99, 255, 0.08);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
+    border: 1px solid rgba(108, 99, 255, 0.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    padding: 12px 0;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
-.dropdown p {
-    padding: 12px 18px;
+#dropdown .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 24px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     color: #000000;
     transition: all 0.2s ease;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    border-bottom: 1px solid rgba(108, 99, 255, 0.05);
 }
 
-.dropdown p:hover {
+#dropdown .menu-item:last-child {
+    border-bottom: none;
+}
+
+#dropdown .menu-item:hover {
     background: rgba(108, 99, 255, 0.08);
     color: var(--primary);
 }
 
-.dropdown hr {
+#dropdown .menu-item .icon {
+    font-size: 20px;
+    width: 32px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+#dropdown .menu-divider {
     border: none;
-    border-top: 1px solid rgba(108, 99, 255, 0.08);
-    margin: 0;
+    border-top: 1px solid rgba(108, 99, 255, 0.1);
+    margin: 4px 0;
 }
 
 /* OVERLAY */
@@ -989,16 +1005,15 @@ body.dark .contact-list li:hover {
     background: rgba(255, 255, 255, 0.8);
 }
 
-body.dark .dropdown {
-    background: rgba(255, 255, 255, 0.95);
-    border-color: rgba(108, 99, 255, 0.08);
+body.dark #dropdown {
+    background: rgba(255, 255, 255, 0.97);
 }
 
-body.dark .dropdown p {
+body.dark #dropdown .menu-item {
     color: #000000;
 }
 
-body.dark .dropdown p:hover {
+body.dark #dropdown .menu-item:hover {
     background: rgba(108, 99, 255, 0.08);
     color: var(--primary);
 }
@@ -1180,34 +1195,6 @@ body.dark .section-panel:hover::before {
         padding: 18px 18px 22px 18px;
     }
 
-    .dropdown {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 88%;
-        max-width: 340px;
-        text-align: left;
-        padding: 10px 0;
-        border-radius: 20px;
-        max-height: 80vh;
-        overflow-y: auto;
-    }
-
-    .dropdown p {
-        font-size: 16px;
-        padding: 14px 22px;
-        border-bottom: 1px solid rgba(108, 99, 255, 0.05);
-    }
-
-    .dropdown p:last-child {
-        border-bottom: none;
-    }
-
-    .dropdown hr {
-        margin: 4px 0;
-    }
-
     .edu-list li {
         flex-wrap: wrap;
     }
@@ -1286,24 +1273,43 @@ body.dark .section-panel:hover::before {
 
     <div class="menu">
         <button onclick="toggleMenu()">☰</button>
-        <div id="dropdown" class="dropdown">
-            <!-- MENU HP DENGAN IKON -->
-            <p class="mobile-only" onclick="scrollToSection('about'); closeMenu()">👤 Tentang Saya</p>
-            <p class="mobile-only" onclick="scrollToSection('project'); closeMenu()">📂 Project</p>
-            <p class="mobile-only" onclick="scrollToSection('skill'); closeMenu(); animateSkills()">💻 Keahlian</p>
-            <p class="mobile-only" onclick="scrollToSection('pengalaman'); closeMenu()">⭐ Pengalaman</p>
-            <p class="mobile-only" onclick="scrollToSection('edu'); closeMenu()">🎓 Pendidikan</p>
-            <p class="mobile-only" onclick="scrollToSection('contact'); closeMenu()">📞 Kontak</p>
-            <hr class="mobile-only">
-            <p class="mobile-only" onclick="toggleDark(); closeMenu()">🌙 Mode Gelap</p>
-            <p class="mobile-only" onclick="setLang('id'); closeMenu()">🇮🇩 Indonesia</p>
-            <p class="mobile-only" onclick="setLang('en'); closeMenu()">🇬🇧 English</p>
-        </div>
     </div>
 </nav>
 
 <!-- OVERLAY -->
 <div id="overlay" onclick="closeMenu()"></div>
+
+<!-- DROPDOWN MENU HP -->
+<div id="dropdown">
+    <div class="menu-item" onclick="scrollToSection('about'); closeMenu()">
+        <span class="icon">👤</span> Tentang Saya
+    </div>
+    <div class="menu-item" onclick="scrollToSection('project'); closeMenu()">
+        <span class="icon">📂</span> Project
+    </div>
+    <div class="menu-item" onclick="scrollToSection('skill'); closeMenu(); animateSkills()">
+        <span class="icon">💻</span> Keahlian
+    </div>
+    <div class="menu-item" onclick="scrollToSection('pengalaman'); closeMenu()">
+        <span class="icon">⭐</span> Pengalaman
+    </div>
+    <div class="menu-item" onclick="scrollToSection('edu'); closeMenu()">
+        <span class="icon">🎓</span> Pendidikan
+    </div>
+    <div class="menu-item" onclick="scrollToSection('contact'); closeMenu()">
+        <span class="icon">📞</span> Kontak
+    </div>
+    <hr class="menu-divider">
+    <div class="menu-item" onclick="toggleDark(); closeMenu()">
+        <span class="icon">🌙</span> Mode Gelap
+    </div>
+    <div class="menu-item" onclick="setLang('id'); closeMenu()">
+        <span class="icon">🇮🇩</span> Indonesia
+    </div>
+    <div class="menu-item" onclick="setLang('en'); closeMenu()">
+        <span class="icon">🇬🇧</span> English
+    </div>
+</div>
 
 <header class="hero">
     <div class="avatar-wrapper" onclick="openModal()">
@@ -1613,6 +1619,7 @@ let currentSection = "about";
 function setLang(l){
     lang = l;
     updateContent();
+    updateActiveNav(currentSection);
 }
 
 function updateContent(){

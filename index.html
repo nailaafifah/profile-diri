@@ -1249,45 +1249,48 @@ body.dark .section-panel:hover::before {
         <button class="menu-btn" onclick="toggleMenu()">☰</button>
         <div id="dropdown" class="dropdown">
 
-    <p style="font-weight:bold;cursor:default;">
-        ☰ Menu
+    <p style="font-weight:bold;cursor:default;">☰ Menu</p>
+    <hr>
+
+    <p class="mobile-only" onclick="scrollToSection('about'); closeMenu()">
+        👤 Tentang Saya
+    </p>
+
+    <p class="mobile-only" onclick="scrollToSection('project'); closeMenu()">
+        📂 Project
+    </p>
+
+    <p class="mobile-only" onclick="scrollToSection('skill'); animateSkills(); closeMenu()">
+        💻 Keahlian
+    </p>
+
+    <p class="mobile-only" onclick="scrollToSection('pengalaman'); closeMenu()">
+        ⭐ Pengalaman
+    </p>
+
+    <p class="mobile-only" onclick="scrollToSection('edu'); closeMenu()">
+        🎓 Pendidikan
+    </p>
+
+    <p class="mobile-only" onclick="scrollToSection('contact'); closeMenu()">
+        📞 Kontak
     </p>
 
     <hr>
-            <p class="mobile-only" onclick="scrollToSection('project'); closeMenu()">
-📂 Project
-</p>
 
-<p class="mobile-only" onclick="scrollToSection('skill'); closeMenu(); animateSkills()">
-💻 Keahlian
-</p>
+    <p onclick="toggleDark(); closeMenu()">
+        🌙 Mode Gelap
+    </p>
 
-<p class="mobile-only" onclick="scrollToSection('pengalaman'); closeMenu()">
-⭐ Pengalaman
-</p>
+    <p onclick="setLang('id'); closeMenu()">
+        🇮🇩 Indonesia
+    </p>
 
-<p class="mobile-only" onclick="scrollToSection('edu'); closeMenu()">
-🎓 Pendidikan
-</p>
+    <p onclick="setLang('en'); closeMenu()">
+        🇬🇧 English
+    </p>
 
-<p class="mobile-only" onclick="scrollToSection('contact'); closeMenu()">
-📞 Kontak
-</p>
-
-<hr>
-
-<p onclick="toggleDark(); closeMenu()">
-🌙 Mode Gelap
-</p>
-
-<p onclick="setLang('id'); closeMenu()">
-🇮🇩 Indonesia
-</p>
-
-<p onclick="setLang('en'); closeMenu()">
-🇬🇧 English
-</p>
-        </div>
+</div>
     </div>
 </nav>
 

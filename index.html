@@ -152,13 +152,13 @@ nav ul li a.active::after {
 .hero{
     position: relative;
     z-index: 1;
-    min-height: 60vh;
+    min-height: 55vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 100px 8% 50px;
+    padding: 100px 8% 40px;
 }
 
 /* FOTO BULAT */
@@ -303,27 +303,24 @@ nav ul li a.active::after {
     to { width: 60px; opacity: 1; }
 }
 
-/* CONTENT - SEMUA KONTEN MUNCUL BERSAMAAN */
+/* CONTENT - LEBAR KE SAMPING */
 .content{
-    width: 95%;
-    max-width: 1400px;
-    margin: auto;
-    padding: 20px 15px 60px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 5% 40px;
 }
 
-/* SECTION PANEL - PANJANG DAN DI TENGAH */
+/* SECTION PANEL - LEBAR KE SAMPING, PADDING VERTIKAL KECIL */
 .section-panel {
     background: var(--card-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-radius: 28px;
+    border-radius: 24px;
     border: 2px solid transparent;
-    padding: 16px 38px;
-    margin: 0;
+    padding: 35px 55px 40px 55px;
+    margin-top: 30px;
     box-shadow: var(--shadow);
     position: relative;
     background-clip: padding-box;
@@ -331,25 +328,11 @@ nav ul li a.active::after {
     width: 100%;
 }
 
-.section-panel + .section-panel{
-    margin-top: 40px;
-}
-
-/* Tentang Saya memenuhi 2 kolom */
-#about{
-    grid-column: 1 / 3;
-}
-
-/* Kontak memenuhi 2 kolom */
-#contact{
-    grid-column: 1 / 3;
-}
-
 .section-panel::before {
     content: '';
     position: absolute;
     inset: -3px;
-    border-radius: 30px;
+    border-radius: 26px;
     background: var(--primary-gradient);
     background-size: 300% 300%;
     animation: borderRotate 4s linear infinite;
@@ -368,7 +351,7 @@ nav ul li a.active::after {
     -webkit-text-fill-color: transparent;
     font-size: 28px;
     font-weight: 800;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     letter-spacing: -0.5px;
     display: inline-block;
     position: relative;
@@ -377,24 +360,24 @@ nav ul li a.active::after {
 .section-panel h2::after {
     content: '';
     display: block;
-    width: 70px;
-    height: 5px;
+    width: 55px;
+    height: 4px;
     background: var(--primary-gradient);
     border-radius: 10px;
-    margin-top: 10px;
+    margin-top: 6px;
 }
 
 .section-panel p {
     color: #000000;
-    font-size: 15px;
-    line-height: 1.6;
+    line-height: 1.9;
+    font-size: 16px;
 }
 
 .section-panel h3 {
     color: #000000;
-    font-size: 19px;
-    margin-top: 24px;
-    margin-bottom: 10px;
+    font-size: 17px;
+    margin-top: 18px;
+    margin-bottom: 8px;
 }
 
 .section-panel a {
@@ -412,16 +395,16 @@ nav ul li a.active::after {
 /* PROJECT CARDS */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 22px;
-    margin-top: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+    margin-top: 12px;
 }
 
 .project-card {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
-    padding: 14px 18px;
-    border-radius: 18px;
+    padding: 20px 22px 24px 22px;
+    border-radius: 16px;
     border: 1px solid rgba(108, 99, 255, 0.08);
     box-shadow: 0 4px 16px rgba(108, 99, 255, 0.06);
     transition: all 0.4s ease;
@@ -439,25 +422,26 @@ nav ul li a.active::after {
     margin-top: 0;
     font-size: 16px;
     color: #000000;
+    margin-bottom: 6px;
 }
 
 .project-card p {
     font-size: 14px;
-    margin-top: 5px;
+    margin-top: 4px;
     color: #000000;
-    line-height: 1.5;
+    line-height: 1.7;
 }
 
 .project-card .btn-project {
-    margin-top: 10px;
-    padding: 10px 22px;
+    margin-top: 14px;
+    padding: 8px 20px;
     background: var(--primary-gradient);
     color: #fff;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 13px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
 }
@@ -468,14 +452,14 @@ nav ul li a.active::after {
 }
 
 /* SKILL */
-.skill{
-    margin:10px 0;
+.skill {
+    margin: 14px 0;
     text-align: left;
 }
 
 .skill-name {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 15px;
     color: #000000;
     margin-bottom: 4px;
     display: flex;
@@ -486,9 +470,9 @@ nav ul li a.active::after {
     color: var(--primary);
 }
 
-.skill-bar{
-    width:100%;
-    height:8px;
+.skill-bar {
+    width: 100%;
+    height: 8px;
     background: rgba(108, 99, 255, 0.12);
     border-radius: 10px;
     overflow: hidden;
@@ -512,12 +496,12 @@ nav ul li a.active::after {
 }
 
 /* EXPERIENCE */
-.exp-item{
-    background: rgba(255,255,255,.5);
-    padding:12px 16px;
+.exp-item {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 16px 20px 18px 20px;
     border-radius: 14px;
-    margin-top: 16px;
-    border-left: 5px solid var(--primary);
+    margin-top: 12px;
+    border-left: 4px solid var(--primary);
     transition: all 0.3s ease;
     cursor: pointer;
 }
@@ -530,19 +514,20 @@ nav ul li a.active::after {
 
 .exp-item h3 {
     margin-top: 0;
-    font-size:16px;
+    font-size: 16px;
     color: #000000;
+    margin-bottom: 4px;
 }
 
-.exp-item p{
-    font-size:14px;
-    margin-top:4px;
+.exp-item p {
+    font-size: 14px;
+    margin-top: 3px;
     color: #000000;
-    line-height:1.5;
+    line-height: 1.8;
 }
 
 .exp-item .read-hint {
-    font-size:12px;
+    font-size: 12px;
     color: var(--primary);
     margin-top: 6px;
 }
@@ -550,20 +535,20 @@ nav ul li a.active::after {
 /* EDUCATION */
 .edu-list {
     list-style: none;
-    margin-top: 14px;
+    margin-top: 12px;
 }
 
-.edu-list li{
-    padding:10px 16px;
+.edu-list li {
+    padding: 14px 18px;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 14px;
-    margin-bottom:8px;
+    margin-bottom: 10px;
     font-weight: 600;
     color: #000000;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
 }
 
 .edu-list li:hover {
@@ -573,31 +558,31 @@ nav ul li a.active::after {
 
 .edu-list li::before {
     content: '🎓';
-    font-size:18px;
+    font-size: 20px;
 }
 
 .edu-list li span {
     font-weight: 400;
     color: #000000;
-    font-size:13px;
+    font-size: 14px;
     margin-left: auto;
 }
 
 /* CONTACT */
 .contact-list {
     list-style: none;
-    margin-top: 14px;
+    margin-top: 12px;
 }
 
-.contact-list li{
-    padding:10px 16px;
+.contact-list li {
+    padding: 14px 18px;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 14px;
-    margin-bottom:8px;
+    margin-bottom: 10px;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
 }
 
 .contact-list li:hover {
@@ -606,10 +591,10 @@ nav ul li a.active::after {
     box-shadow: 0 4px 20px rgba(108, 99, 255, 0.1);
 }
 
-.contact-list .icon{
-    width:34px;
-    height:34px;
-    font-size:15px;
+.contact-list .icon {
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -622,7 +607,7 @@ nav ul li a.active::after {
 .contact-list li a {
     color: #000000;
     font-weight: 600;
-    font-size:14px;
+    font-size: 15px;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -816,10 +801,10 @@ footer{
     position: relative;
     z-index: 1;
     text-align: center;
-    padding: 22px;
+    padding: 20px;
     background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
-    margin-top: 40px;
+    margin-top: 35px;
     font-size: 14px;
     color: #000000;
     font-weight: 500;
@@ -833,24 +818,8 @@ footer span {
 }
 
 /* MENU */
-/* MENU */
 .menu {
     position: relative;
-}
-
-.menu button {
-    background: rgba(108, 99, 255, 0.08);
-    border: none;
-    font-size: 22px;
-    cursor: pointer;
-    padding: 6px 12px;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    color: #000000;
-}
-
-.menu{
-    display:none;
 }
 
 .menu button {
@@ -869,20 +838,6 @@ footer span {
     transform: scale(1.05);
 }
 
-.menu-btn{
-    width:42px;
-    height:42px;
-    border:none;
-    border-radius:12px;
-    background:var(--primary-gradient);
-    color:#fff;
-    font-size:24px;
-    cursor:pointer;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
 .dropdown {
     position: absolute;
     right: 0;
@@ -891,7 +846,7 @@ footer span {
     backdrop-filter: blur(20px);
     border-radius: 16px;
     display: none;
-    min-width:240px;
+    min-width: 170px;
     z-index: 9999;
     border: 1px solid rgba(108, 99, 255, 0.08);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
@@ -1116,81 +1071,104 @@ body.dark .section-panel:hover::before {
 }
 
 /* MOBILE */
-.mobile-only{
-    display:none;
+.mobile-only {
+    display: none;
 }
 
-@media (max-width:768px){
-
-    .menu{
-        display:block;
+@media (max-width: 768px) {
+    nav ul {
+        display: none !important;
     }
 
-    .nav-links{
-        display:none !important;
+    .mobile-only {
+        display: block;
     }
 
-    .mobile-only{
-        display:block;
+    .hero {
+        min-height: 50vh;
+        padding: 90px 8% 30px;
     }
 
-}
-
-    nav{
-        padding:12px 20px;
+    .hero .name {
+        font-size: 22px;
     }
 
-    nav h2{
-        font-size:20px;
+    .hero .avatar-wrapper img {
+        width: 120px;
+        height: 120px;
     }
 
-    .hero{
-        padding:90px 20px 30px;
+    .content {
+        max-width: 100%;
+        padding: 0 4% 30px;
     }
 
-    .hero .avatar-wrapper img{
-        width:110px;
-        height:110px;
+    .section-panel {
+        padding: 24px 18px 28px 18px;
+        border-radius: 20px;
     }
 
-    .hero .name{
-        font-size:24px;
+    .section-panel::before {
+        border-radius: 22px;
     }
 
-    .hero .role{
-        font-size:14px;
+    .section-panel h2 {
+        font-size: 22px;
     }
 
-    .content{
-        width:100%;
-        padding:0 12px 40px;
+    .section-panel h2::after {
+        width: 45px;
+        height: 4px;
     }
 
-    .section-panel{
-        padding:18px;
-        border-radius:18px;
+    .section-panel p {
+        font-size: 15px;
+        line-height: 1.8;
     }
 
-    .project-grid{
-        grid-template-columns:1fr;
+    .project-grid {
+        grid-template-columns: 1fr;
     }
 
-    .detail-modal .modal-box{
-        width:95%;
-        padding:24px 20px;
-        margin:10px;
-        max-height:80vh;
+    .project-card {
+        padding: 18px 18px 22px 18px;
     }
 
-    .detail-modal .modal-box h2{
-        font-size:20px;
-        padding-right:40px;
+    .dropdown {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 85%;
+        max-width: 320px;
+        text-align: center;
+        padding: 8px 0;
+        border-radius: 20px;
     }
 
-    .modal-preview .modal-content{
-        width:95%;
+    .dropdown p {
+        font-size: 16px;
+        padding: 14px 18px;
     }
-}
+
+    .edu-list li {
+        flex-wrap: wrap;
+    }
+
+    .edu-list li span {
+        margin-left: 0;
+        width: 100%;
+        padding-left: 30px;
+    }
+
+    .contact-list li {
+        flex-wrap: wrap;
+    }
+
+    .modal-preview .modal-content {
+        padding: 16px;
+        width: 95%;
+    }
 
     .detail-modal .modal-box {
         padding: 24px 20px;
@@ -1202,7 +1180,7 @@ body.dark .section-panel:hover::before {
         font-size: 20px;
         padding-right: 40px;
     }
-
+}
 </style>
 </head>
 
@@ -1246,47 +1224,18 @@ body.dark .section-panel:hover::before {
     </ul>
 
     <div class="menu">
-        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <button onclick="toggleMenu()">⋮</button>
         <div id="dropdown" class="dropdown">
-
-    <p style="font-weight:bold;cursor:default;">
-        ☰ Menu
-    </p>
-
-    <hr>
-            <p class="mobile-only" onclick="scrollToSection('project'); closeMenu()">
-📂 Project
-</p>
-
-<p class="mobile-only" onclick="scrollToSection('skill'); closeMenu(); animateSkills()">
-💻 Keahlian
-</p>
-
-<p class="mobile-only" onclick="scrollToSection('pengalaman'); closeMenu()">
-⭐ Pengalaman
-</p>
-
-<p class="mobile-only" onclick="scrollToSection('edu'); closeMenu()">
-🎓 Pendidikan
-</p>
-
-<p class="mobile-only" onclick="scrollToSection('contact'); closeMenu()">
-📞 Kontak
-</p>
-
-<hr>
-
-<p onclick="toggleDark(); closeMenu()">
-🌙 Mode Gelap
-</p>
-
-<p onclick="setLang('id'); closeMenu()">
-🇮🇩 Indonesia
-</p>
-
-<p onclick="setLang('en'); closeMenu()">
-🇬🇧 English
-</p>
+            <p class="mobile-only" onclick="scrollToSection('about'); closeMenu()">Tentang</p>
+            <p class="mobile-only" onclick="scrollToSection('project'); closeMenu()">Project</p>
+            <p class="mobile-only" onclick="scrollToSection('skill'); closeMenu(); animateSkills()">Keahlian</p>
+            <p class="mobile-only" onclick="scrollToSection('pengalaman'); closeMenu()">Pengalaman</p>
+            <p class="mobile-only" onclick="scrollToSection('edu'); closeMenu()">Pendidikan</p>
+            <p class="mobile-only" onclick="scrollToSection('contact'); closeMenu()">Kontak</p>
+            <hr class="mobile-only">
+            <p onclick="toggleDark(); closeMenu()">🌙 Mode Gelap</p>
+            <p onclick="setLang('id'); closeMenu()">🇮🇩 Indonesia</p>
+            <p onclick="setLang('en'); closeMenu()">🇬🇧 English</p>
         </div>
     </div>
 </nav>
@@ -1592,7 +1541,6 @@ function setLang(l){
 }
 
 function updateContent(){
-    // Update project cards
     document.querySelectorAll('.project-card').forEach((card, index) => {
         const keys = ['recomed', 'quiz', 'perpus', 'skincare'];
         const key = keys[index];
@@ -1612,7 +1560,6 @@ function updateContent(){
         }
     });
 
-    // Update experience
     document.querySelectorAll('.exp-item').forEach((item, index) => {
         const keys = ['organisasi', 'pmr', 'tari'];
         const key = keys[index];
@@ -1675,19 +1622,16 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const id = entry.target.id;
-
-            // updateActiveNav(id);
-
+            updateActiveNav(id);
+            
             if (id === 'skill') {
                 const fills = document.querySelectorAll('#skill .skill-fill');
                 let allAnimated = true;
-
                 fills.forEach(function(el) {
                     if (el.style.width === '0px' || el.style.width === '0%' || !el.style.width) {
                         allAnimated = false;
                     }
                 });
-
                 if (!allAnimated) {
                     animateSkills();
                 }

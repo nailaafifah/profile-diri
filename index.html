@@ -891,7 +891,7 @@ footer span {
     backdrop-filter: blur(20px);
     border-radius: 16px;
     display: none;
-    min-width: 170px;
+    min-width:240px;
     z-index: 9999;
     border: 1px solid rgba(108, 99, 255, 0.08);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
@@ -1116,92 +1116,82 @@ body.dark .section-panel:hover::before {
 }
 
 /* MOBILE */
-.mobile-only {
-    display: none;
+.mobile-only{
+    display:none;
 }
 
 @media (max-width:768px){
 
     .menu{
-    display:block;
+        display:block;
+    }
+
+    .nav-links{
+        display:none !important;
+    }
+
+    .mobile-only{
+        display:block;
+    }
+
 }
 
-.nav-links{
-    display:none !important;
+    nav{
+        padding:12px 20px;
+    }
+
+    nav h2{
+        font-size:20px;
+    }
+
+    .hero{
+        padding:90px 20px 30px;
+    }
+
+    .hero .avatar-wrapper img{
+        width:110px;
+        height:110px;
+    }
+
+    .hero .name{
+        font-size:24px;
+    }
+
+    .hero .role{
+        font-size:14px;
+    }
+
+    .content{
+        width:100%;
+        padding:0 12px 40px;
+    }
+
+    .section-panel{
+        padding:18px;
+        border-radius:18px;
+    }
+
+    .project-grid{
+        grid-template-columns:1fr;
+    }
+
+    .detail-modal .modal-box{
+        width:95%;
+        padding:24px 20px;
+        margin:10px;
+        max-height:80vh;
+    }
+
+    .detail-modal .modal-box h2{
+        font-size:20px;
+        padding-right:40px;
+    }
+
+    .modal-preview .modal-content{
+        width:95%;
+    }
 }
 
-nav{
-    padding:12px 20px;
-}
-
-nav h2{
-    font-size:20px;
-}
-
-.hero{
-    padding:90px 20px 30px;
-}
-
-.hero .avatar-wrapper img{
-    width:110px;
-    height:110px;
-}
-
-.hero .name{
-    font-size:24px;
-}
-
-.hero .role{
-    font-size:14px;
-}
-
-.content{
-    width:100%;
-    padding:0 12px 40px;
-}
-
-.section-panel{
-    padding:18px;
-    border-radius:18px;
-}
-
-.section-panel h2{
-    font-size:24px;
-}
-
-.section-panel p{
-    font-size:14px;
-    line-height:1.8;
-}
-
-.project-grid{
-    grid-template-columns:1fr;
-    gap:15px;
-}
-
-.project-card{
-    padding:16px;
-}
-
-.skill-name{
-    font-size:14px;
-}
-
-.exp-item,
-.edu-list li,
-.contact-list li{
-    padding:14px;
-}
-
-.detail-modal .modal-box{
-    width:95%;
-    padding:20px;
-}
-
-.modal-preview .modal-content{
-    width:95%;
-}
-}
     .detail-modal .modal-box {
         padding: 24px 20px;
         margin: 10px;
@@ -1212,7 +1202,7 @@ nav h2{
         font-size: 20px;
         padding-right: 40px;
     }
-}
+
 </style>
 </head>
 
@@ -1258,16 +1248,45 @@ nav h2{
     <div class="menu">
         <button class="menu-btn" onclick="toggleMenu()">☰</button>
         <div id="dropdown" class="dropdown">
-            <p class="mobile-only" onclick="scrollToSection('about'); closeMenu()">Tentang</p>
-            <p class="mobile-only" onclick="scrollToSection('project'); closeMenu()">Project</p>
-            <p class="mobile-only" onclick="scrollToSection('skill'); closeMenu(); animateSkills()">Keahlian</p>
-            <p class="mobile-only" onclick="scrollToSection('pengalaman'); closeMenu()">Pengalaman</p>
-            <p class="mobile-only" onclick="scrollToSection('edu'); closeMenu()">Pendidikan</p>
-            <p class="mobile-only" onclick="scrollToSection('contact'); closeMenu()">Kontak</p>
-            <hr class="mobile-only">
-            <p onclick="toggleDark(); closeMenu()">🌙 Mode Gelap</p>
-            <p onclick="setLang('id'); closeMenu()">🇮🇩 Indonesia</p>
-            <p onclick="setLang('en'); closeMenu()">🇬🇧 English</p>
+
+    <p style="font-weight:bold;cursor:default;">
+        ☰ Menu
+    </p>
+
+    <hr>
+            <p class="mobile-only" onclick="scrollToSection('project'); closeMenu()">
+📂 Project
+</p>
+
+<p class="mobile-only" onclick="scrollToSection('skill'); closeMenu(); animateSkills()">
+💻 Keahlian
+</p>
+
+<p class="mobile-only" onclick="scrollToSection('pengalaman'); closeMenu()">
+⭐ Pengalaman
+</p>
+
+<p class="mobile-only" onclick="scrollToSection('edu'); closeMenu()">
+🎓 Pendidikan
+</p>
+
+<p class="mobile-only" onclick="scrollToSection('contact'); closeMenu()">
+📞 Kontak
+</p>
+
+<hr>
+
+<p onclick="toggleDark(); closeMenu()">
+🌙 Mode Gelap
+</p>
+
+<p onclick="setLang('id'); closeMenu()">
+🇮🇩 Indonesia
+</p>
+
+<p onclick="setLang('en'); closeMenu()">
+🇬🇧 English
+</p>
         </div>
     </div>
 </nav>

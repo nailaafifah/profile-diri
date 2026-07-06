@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profil | Naila Afifah</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
@@ -18,19 +18,18 @@
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
-      padding: 16px;
-      padding-top: 20px;
+      align-items: center;
+      padding: 20px;
     }
 
     .container {
-      max-width: 420px;
+      max-width: 500px;
       width: 100%;
       background: rgba(255, 255, 255, 0.88);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      border-radius: 28px;
-      padding: 18px 16px 16px;
+      border-radius: 24px;
+      padding: 20px 20px 16px;
       box-shadow: 0 12px 40px rgba(108, 99, 255, 0.10);
       border: 1px solid rgba(255, 255, 255, 0.6);
     }
@@ -38,11 +37,11 @@
     /* ===== HEADER ===== */
     .header-title {
       text-align: center;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 800;
       color: #1a1a2e;
-      margin-bottom: 14px;
-      padding-bottom: 10px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
       border-bottom: 1px solid rgba(108, 99, 255, 0.06);
     }
 
@@ -58,15 +57,15 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 4px 6px;
-      margin-bottom: 16px;
-      padding: 8px 4px;
+      margin-bottom: 14px;
+      padding: 6px 4px;
       background: rgba(108, 99, 255, 0.04);
-      border-radius: 16px;
+      border-radius: 14px;
     }
 
     .nav-menu a {
       display: inline-block;
-      padding: 6px 12px;
+      padding: 5px 12px;
       font-size: 12px;
       font-weight: 600;
       color: #3d3b6b;
@@ -78,11 +77,12 @@
       white-space: nowrap;
     }
 
+    .nav-menu a:hover {
+      background: rgba(108, 99, 255, 0.08);
+    }
+
     .nav-menu a:active {
-      background: linear-gradient(135deg, #6C63FF, #8B83FF);
-      color: white;
       transform: scale(0.95);
-      box-shadow: 0 4px 12px rgba(108, 99, 255, 0.25);
     }
 
     .nav-menu a.active {
@@ -99,25 +99,25 @@
     /* ===== PROFIL ===== */
     .profile {
       text-align: center;
-      margin-bottom: 14px;
-      padding-bottom: 12px;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
       border-bottom: 1px solid rgba(108, 99, 255, 0.06);
     }
 
     .avatar {
-      width: 72px;
-      height: 72px;
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
       padding: 3px;
       background: linear-gradient(135deg, #6C63FF, #a78bfa);
-      box-shadow: 0 6px 20px rgba(108, 99, 255, 0.15);
-      margin: 0 auto 8px;
+      box-shadow: 0 4px 16px rgba(108, 99, 255, 0.15);
+      margin: 0 auto 6px;
       cursor: pointer;
       transition: transform 0.3s ease;
     }
 
-    .avatar:active {
-      transform: scale(0.95);
+    .avatar:hover {
+      transform: scale(1.05);
     }
 
     .avatar img {
@@ -129,16 +129,16 @@
     }
 
     .greeting {
-      font-size: 13px;
+      font-size: 12px;
       color: #4a4870;
       font-weight: 500;
     }
 
     .name {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 800;
       color: #1a1a2e;
-      margin: 2px 0;
+      margin: 1px 0;
     }
 
     .name span {
@@ -148,7 +148,7 @@
     }
 
     .role {
-      font-size: 13px;
+      font-size: 12px;
       color: #4a4870;
       font-weight: 500;
     }
@@ -162,78 +162,77 @@
     .content-section {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
 
     .card {
       background: rgba(255, 255, 255, 0.60);
       backdrop-filter: blur(4px);
       -webkit-backdrop-filter: blur(4px);
-      border-radius: 18px;
-      padding: 12px 14px;
+      border-radius: 16px;
+      padding: 10px 14px;
       border: 1px solid rgba(255, 255, 255, 0.7);
-      box-shadow: 0 2px 12px rgba(108, 99, 255, 0.03);
+      box-shadow: 0 2px 10px rgba(108, 99, 255, 0.03);
       scroll-margin-top: 10px;
     }
 
     .card-title {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       color: #1a1a2e;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
 
     .card-title i {
       color: #6C63FF;
-      font-size: 14px;
-      width: 22px;
+      font-size: 13px;
+      width: 20px;
       text-align: center;
     }
 
     .card p {
-      font-size: 13px;
+      font-size: 12px;
       color: #1f1f3a;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     /* ===== PROJECT ===== */
     .project-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6px;
+      gap: 5px;
     }
 
     .project-item {
       background: rgba(255, 255, 255, 0.5);
-      padding: 8px 10px;
-      border-radius: 12px;
-      font-size: 12px;
+      padding: 6px 8px;
+      border-radius: 10px;
+      font-size: 11px;
       font-weight: 600;
       color: #1f1f3a;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       border: 1px solid rgba(108, 99, 255, 0.04);
       cursor: pointer;
       transition: all 0.2s ease;
     }
 
-    .project-item:active {
-      transform: scale(0.97);
+    .project-item:hover {
       background: rgba(108, 99, 255, 0.08);
     }
 
     .project-item i {
       color: #6C63FF;
-      font-size: 14px;
+      font-size: 12px;
     }
 
     /* ===== KEAHLIAN ===== */
     .skill-item {
-      margin-bottom: 5px;
+      margin-bottom: 4px;
     }
 
     .skill-item:last-child {
@@ -243,7 +242,7 @@
     .skill-label {
       display: flex;
       justify-content: space-between;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 500;
       color: #1f1f3a;
     }
@@ -253,7 +252,7 @@
       height: 4px;
       background: rgba(108, 99, 255, 0.10);
       border-radius: 20px;
-      margin-top: 2px;
+      margin-top: 1px;
       overflow: hidden;
     }
 
@@ -267,12 +266,12 @@
 
     /* ===== PENGALAMAN & PENDIDIKAN ===== */
     .exp-item, .edu-item {
-      padding: 4px 0;
-      font-size: 13px;
+      padding: 3px 0;
+      font-size: 12px;
       color: #1f1f3a;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       border-bottom: 1px solid rgba(108, 99, 255, 0.04);
     }
 
@@ -282,16 +281,16 @@
 
     .exp-item i, .edu-item i {
       color: #6C63FF;
-      width: 18px;
-      font-size: 13px;
+      width: 16px;
+      font-size: 12px;
       text-align: center;
     }
 
     .badge {
       background: rgba(108, 99, 255, 0.08);
-      padding: 1px 10px;
+      padding: 1px 8px;
       border-radius: 30px;
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 600;
       color: #3d3b6b;
       margin-left: auto;
@@ -302,11 +301,11 @@
     .contact-row {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 5px 0;
+      gap: 8px;
+      padding: 4px 0;
       color: #1f1f3a;
       text-decoration: none;
-      font-size: 12px;
+      font-size: 11px;
       border-bottom: 1px solid rgba(108, 99, 255, 0.04);
       transition: all 0.2s ease;
     }
@@ -316,23 +315,23 @@
     }
 
     .contact-row i {
-      width: 20px;
+      width: 18px;
       color: #6C63FF;
-      font-size: 14px;
+      font-size: 13px;
       text-align: center;
     }
 
-    .contact-row:active {
+    .contact-row:hover {
       color: #6C63FF;
-      transform: translateX(4px);
+      transform: translateX(3px);
     }
 
     .footer {
       text-align: center;
       font-size: 10px;
       color: #7a78a0;
-      margin-top: 12px;
-      padding-top: 10px;
+      margin-top: 10px;
+      padding-top: 8px;
       border-top: 1px solid rgba(108, 99, 255, 0.06);
     }
 
@@ -364,9 +363,9 @@
 
     .modal-content {
       background: white;
-      border-radius: 20px;
-      padding: 16px;
-      max-width: 380px;
+      border-radius: 16px;
+      padding: 14px;
+      max-width: 340px;
       width: 100%;
       position: relative;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -374,7 +373,7 @@
 
     .modal-content img {
       width: 100%;
-      border-radius: 12px;
+      border-radius: 10px;
       display: block;
     }
 
@@ -382,13 +381,13 @@
       position: absolute;
       top: -12px;
       right: -12px;
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       background: linear-gradient(135deg, #6C63FF, #8B83FF);
       color: white;
       border: 3px solid white;
-      font-size: 18px;
+      font-size: 16px;
       cursor: pointer;
       box-shadow: 0 4px 16px rgba(108, 99, 255, 0.3);
       display: flex;
@@ -396,17 +395,72 @@
       justify-content: center;
     }
 
-    .modal-close:active {
-      transform: scale(0.9);
+    .modal-close:hover {
+      transform: scale(1.05);
     }
 
-    /* ===== RESPONSIF ===== */
-    @media (max-width: 380px) {
-      .container { padding: 12px 10px; }
+    /* ===== RESPONSIF HP ===== */
+    @media (max-width: 420px) {
+      body { padding: 10px; align-items: flex-start; padding-top: 16px; }
+      .container { padding: 14px 12px 12px; border-radius: 20px; }
       .nav-menu a { font-size: 10px; padding: 4px 8px; }
+      .project-grid { grid-template-columns: 1fr 1fr; }
+      .name { font-size: 15px; }
+      .card { padding: 8px 10px; }
+      .card-title { font-size: 12px; }
+      .card p { font-size: 11px; }
+      .exp-item, .edu-item { font-size: 11px; }
+      .contact-row { font-size: 10px; }
+    }
+
+    @media (max-width: 360px) {
       .project-grid { grid-template-columns: 1fr; }
-      .name { font-size: 16px; }
-      .card { padding: 10px 12px; }
+      .nav-menu a { font-size: 9px; padding: 3px 6px; }
+    }
+
+    /* ===== TAMBAHAN UNTUK LAPTOP ===== */
+    @media (min-width: 768px) {
+      .container {
+        max-width: 450px;
+        padding: 22px 24px 18px;
+        border-radius: 28px;
+      }
+      .nav-menu {
+        gap: 6px 8px;
+        padding: 8px 6px;
+      }
+      .nav-menu a {
+        padding: 6px 16px;
+        font-size: 13px;
+      }
+      .nav-menu a i {
+        font-size: 12px;
+      }
+      .name {
+        font-size: 19px;
+      }
+      .card {
+        padding: 12px 16px;
+      }
+      .card-title {
+        font-size: 14px;
+      }
+      .card p {
+        font-size: 13px;
+      }
+      .project-item {
+        font-size: 12px;
+        padding: 7px 10px;
+      }
+      .skill-label {
+        font-size: 12px;
+      }
+      .exp-item, .edu-item {
+        font-size: 13px;
+      }
+      .contact-row {
+        font-size: 12px;
+      }
     }
   </style>
 </head>
@@ -451,17 +505,17 @@
       <!-- TENTANG -->
       <div class="card" id="tentang">
         <div class="card-title"><i class="fas fa-user"></i> Tentang Saya</div>
-        <p>Saya adalah mahasiswa informatika yang sedang belajar di dunia teknologi, dengan hobi membaca, jalan-jalan, dan menikmati keindahan alam. Saya percaya setiap proses belajar adalah langkah penting untuk menjadi pribadi yang lebih baik di masa depan.</p>
+        <p>Saya mahasiswa informatika, hobi membaca, jalan-jalan, dan menikmati alam. Percaya setiap proses belajar adalah langkah penting menjadi pribadi lebih baik.</p>
       </div>
 
       <!-- PROJECT -->
       <div class="card" id="project">
         <div class="card-title"><i class="fas fa-folder"></i> Project</div>
         <div class="project-grid">
-          <div class="project-item" onclick="showProject('Recomed', 'Website rekomendasi movie berdasarkan genre dan preferensi pengguna.')"><i class="fas fa-film"></i> Recomed</div>
-          <div class="project-item" onclick="showProject('Quiz App', 'Aplikasi kuis dengan berbagai kategori seperti sejarah, geografi, ibukota, dan lain-lain.')"><i class="fas fa-brain"></i> Quiz App</div>
-          <div class="project-item" onclick="showProject('Perpus App', 'Aplikasi perpustakaan berbasis web dengan fitur Dashboard, Kelola Buku, dan lainnya.')"><i class="fas fa-book"></i> Perpus App</div>
-          <div class="project-item" onclick="showProject('Skincare Store', 'Toko online dengan promo, keranjang belanja, dan checkout via WhatsApp.')"><i class="fas fa-spa"></i> Skincare</div>
+          <div class="project-item" onclick="alert('🎬 Recomed\n\nWebsite rekomendasi movie berdasarkan genre dan preferensi pengguna.')"><i class="fas fa-film"></i> Recomed</div>
+          <div class="project-item" onclick="alert('🧠 Quiz App\n\nAplikasi kuis dengan berbagai kategori seperti sejarah, geografi, ibukota, dan lain-lain.')"><i class="fas fa-brain"></i> Quiz</div>
+          <div class="project-item" onclick="alert('📚 Perpus App\n\nAplikasi perpustakaan berbasis web dengan fitur Dashboard, Kelola Buku, dan lainnya.')"><i class="fas fa-book"></i> Perpus</div>
+          <div class="project-item" onclick="alert('🛍️ Skincare Store\n\nToko online dengan promo, keranjang belanja, dan checkout via WhatsApp.')"><i class="fas fa-spa"></i> Skincare</div>
         </div>
       </div>
 
@@ -469,7 +523,7 @@
       <div class="card" id="keahlian">
         <div class="card-title"><i class="fas fa-code"></i> Keahlian</div>
         <div class="skill-item">
-          <div class="skill-label"><span>Microsoft Word</span><span>90%</span></div>
+          <div class="skill-label"><span>Word</span><span>90%</span></div>
           <div class="skill-bar"><div class="skill-fill" style="width:90%;"></div></div>
         </div>
         <div class="skill-item">
@@ -493,14 +547,14 @@
       <!-- PENGALAMAN -->
       <div class="card" id="pengalaman">
         <div class="card-title"><i class="fas fa-star"></i> Pengalaman</div>
-        <div class="exp-item" onclick="showExp('Organisasi Sekolah', 'Saya aktif mengikuti kegiatan organisasi di sekolah yang melatih kemampuan kepemimpinan, kerja sama tim, dan tanggung jawab.')">
-          <i class="fas fa-users"></i> Organisasi Sekolah <span class="badge">kepemimpinan</span>
+        <div class="exp-item" onclick="alert('📌 Organisasi Sekolah\n\nMelatih kepemimpinan, kerja sama tim, dan tanggung jawab.')">
+          <i class="fas fa-users"></i> Organisasi <span class="badge">kepemimpinan</span>
         </div>
-        <div class="exp-item" onclick="showExp('Palang Merah Remaja', 'Di PMR saya belajar pertolongan pertama, kesehatan, dan kepedulian sosial.')">
-          <i class="fas fa-hand-holding-heart"></i> Palang Merah Remaja <span class="badge">pertolongan</span>
+        <div class="exp-item" onclick="alert('🚑 Palang Merah Remaja\n\nBelajar pertolongan pertama, kesehatan, dan kepedulian sosial.')">
+          <i class="fas fa-hand-holding-heart"></i> PMR <span class="badge">pertolongan</span>
         </div>
-        <div class="exp-item" onclick="showExp('Tari Tradisional', 'Kegiatan tari melatih disiplin, kekompakan, dan percaya diri saat tampil di depan umum.')">
-          <i class="fas fa-dance"></i> Tari Tradisional <span class="badge">budaya</span>
+        <div class="exp-item" onclick="alert('💃 Tari Tradisional\n\nMelatih disiplin, kekompakan, dan percaya diri tampil di depan umum.')">
+          <i class="fas fa-dance"></i> Tari <span class="badge">budaya</span>
         </div>
       </div>
 
@@ -538,7 +592,6 @@
       document.body.style.overflow = '';
     }
 
-    // Tutup modal dengan ESC
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeModal();
     });
@@ -554,8 +607,6 @@
           const pos = target.getBoundingClientRect().top + window.pageYOffset - offset;
           window.scrollTo({ top: pos, behavior: 'smooth' });
         }
-
-        // Update active menu
         document.querySelectorAll('.nav-menu a').forEach(a => a.classList.remove('active'));
         this.classList.add('active');
       });
@@ -573,7 +624,6 @@
           current = section.getAttribute('id');
         }
       });
-
       navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === '#' + current) {
@@ -582,36 +632,18 @@
       });
     });
 
-    // ===== POPUP PROJECT =====
-    function showProject(title, desc) {
-      alert('📁 ' + title + '\n\n' + desc);
-    }
-
-    // ===== POPUP PENGALAMAN =====
-    function showExp(title, desc) {
-      alert('⭐ ' + title + '\n\n' + desc);
-    }
-
     // ===== ANIMASI SKILL BAR =====
     function animateSkills() {
       document.querySelectorAll('.skill-fill').forEach(el => {
         const width = el.style.width;
         el.style.width = '0%';
-        setTimeout(() => {
-          el.style.width = width;
-        }, 100);
+        setTimeout(() => { el.style.width = width; }, 100);
       });
     }
 
-    // Jalankan animasi saat halaman dimuat
-    window.addEventListener('load', () => {
-      setTimeout(animateSkills, 500);
-    });
+    window.addEventListener('load', () => setTimeout(animateSkills, 300));
 
-    // Jalankan ulang saat scroll ke section keahlian
-    const keahlianSection = document.getElementById('keahlian');
     let skillsAnimated = false;
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && !skillsAnimated) {
@@ -620,10 +652,7 @@
         }
       });
     }, { threshold: 0.3 });
-
-    observer.observe(keahlianSection);
-
-    console.log('✅ Profil siap digunakan!');
+    observer.observe(document.getElementById('keahlian'));
   </script>
 
 </body>

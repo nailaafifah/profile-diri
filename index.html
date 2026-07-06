@@ -2,9 +2,8 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
   <title>Profil | Naila Afifah</title>
-  <!-- Font Awesome untuk ikon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     * {
@@ -15,144 +14,162 @@
     }
 
     body {
-      background: linear-gradient(145deg, #f5f7ff 0%, #e9edff 100%);
+      background: linear-gradient(145deg, #f0f3ff 0%, #e2e8ff 100%);
       min-height: 100vh;
-      padding: 1.5rem;
+      padding: 12px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    /* kontainer utama */
     .container {
-      max-width: 1100px;
+      max-width: 500px;
       width: 100%;
-      background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      border-radius: 40px;
-      padding: 2rem 2rem 1.5rem;
-      box-shadow: 0 20px 50px rgba(108, 99, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.80);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 28px;
+      padding: 16px 16px 20px;
+      box-shadow: 0 12px 40px rgba(108, 99, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      position: relative;
     }
 
-    /* garis tiga waktu (timeline) */
-    .timeline-wrapper {
+    /* ===== HEADER DENGAN MENU HAMBURGER ===== */
+    .header-menu {
       display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      margin: 1.5rem 0 2rem 0;
-    }
-
-    .timeline-row {
-      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 1rem;
-      background: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      border-radius: 60px;
-      padding: 0.6rem 1.4rem 0.6rem 0.8rem;
-      border: 1px solid rgba(108, 99, 255, 0.08);
-      transition: all 0.25s ease;
-      cursor: default;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(108, 99, 255, 0.06);
     }
 
-    .timeline-row:hover {
-      background: rgba(255, 255, 255, 0.85);
-      transform: translateX(4px);
-      box-shadow: 0 6px 18px rgba(108, 99, 255, 0.08);
-      border-color: rgba(108, 99, 255, 0.15);
+    .header-menu .logo {
+      font-size: 18px;
+      font-weight: 800;
+      color: #1a1a2e;
     }
 
-    .timeline-icon {
-      width: 44px;
-      height: 44px;
-      background: linear-gradient(135deg, #6C63FF 0%, #8B83FF 100%);
-      border-radius: 40px;
+    .header-menu .logo span {
+      background: linear-gradient(135deg, #6C63FF, #8B83FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .menu-toggle {
+      background: linear-gradient(135deg, #6C63FF, #8B83FF);
+      border: none;
+      color: white;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(108, 99, 255, 0.25);
+      transition: all 0.3s ease;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-      box-shadow: 0 6px 14px rgba(108, 99, 255, 0.20);
     }
 
-    .timeline-content {
-      flex: 1;
+    .menu-toggle:active {
+      transform: scale(0.92);
+    }
+
+    /* ===== DROPDOWN MENU (garis tiga) ===== */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 72px;
+      right: 16px;
+      left: 16px;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 10px 0;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      z-index: 1000;
+      animation: slideDown 0.25s ease;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .dropdown-menu.show {
+      display: block;
+    }
+
+    .dropdown-menu .menu-item {
       display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 0.4rem 1.2rem;
-    }
-
-    .timeline-label {
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: #1a1a2e;
-      letter-spacing: -0.3px;
-    }
-
-    .timeline-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem 0.8rem;
-    }
-
-    .timeline-tag {
-      background: rgba(108, 99, 255, 0.08);
-      padding: 0.2rem 0.8rem;
-      border-radius: 40px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #3d3b6b;
-      letter-spacing: 0.2px;
-      border: 1px solid rgba(108, 99, 255, 0.05);
-      display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 14px;
+      padding: 12px 20px;
+      color: #1a1a2e;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      border-bottom: 1px solid rgba(108, 99, 255, 0.04);
+      cursor: pointer;
     }
 
-    .timeline-tag i {
-      color: #6C63FF;
-      font-size: 0.7rem;
+    .dropdown-menu .menu-item:last-child {
+      border-bottom: none;
     }
 
-    .timeline-arrow {
-      color: #b3aaff;
-      font-size: 1.2rem;
-      margin-left: auto;
-      opacity: 0.5;
-      transition: 0.2s;
-    }
-
-    .timeline-row:hover .timeline-arrow {
-      opacity: 1;
+    .dropdown-menu .menu-item:active {
+      background: rgba(108, 99, 255, 0.06);
       transform: translateX(4px);
-      color: #6C63FF;
     }
 
-    /* --- section lain (profil) --- */
+    .dropdown-menu .menu-item i {
+      width: 24px;
+      color: #6C63FF;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    /* overlay untuk menutup menu */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.2);
+      z-index: 999;
+      backdrop-filter: blur(2px);
+    }
+
+    .overlay.show {
+      display: block;
+    }
+
+    /* ===== PROFIL HEADER ===== */
     .profile-header {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       align-items: center;
-      gap: 1.8rem;
-      margin-bottom: 2rem;
-      padding-bottom: 1.2rem;
-      border-bottom: 1px solid rgba(108, 99, 255, 0.08);
+      text-align: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(108, 99, 255, 0.06);
     }
 
     .avatar {
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
-      object-fit: cover;
+      padding: 3px;
       background: linear-gradient(135deg, #6C63FF, #a78bfa);
-      padding: 4px;
-      box-shadow: 0 8px 24px rgba(108, 99, 255, 0.20);
+      box-shadow: 0 6px 20px rgba(108, 99, 255, 0.15);
     }
 
     .avatar img {
@@ -164,10 +181,9 @@
     }
 
     .profile-text h1 {
-      font-size: 2rem;
+      font-size: 20px;
       font-weight: 800;
       color: #1a1a2e;
-      letter-spacing: -0.5px;
     }
 
     .profile-text h1 span {
@@ -179,69 +195,65 @@
     .profile-text .sub {
       color: #3d3b6b;
       font-weight: 500;
-      font-size: 1rem;
-      margin-top: 4px;
+      font-size: 13px;
       display: flex;
-      align-items: center;
-      gap: 12px;
       flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 14px;
+      margin-top: 2px;
     }
 
     .profile-text .sub i {
       color: #6C63FF;
-      width: 20px;
+      width: 16px;
+      font-size: 12px;
     }
 
-    /* grid konten (project, keahlian, dll) */
-    .grid-2col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.8rem;
-      margin-top: 1.8rem;
+    /* ===== KONTEN ===== */
+    .content-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 12px;
+      scroll-margin-top: 10px;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.55);
       backdrop-filter: blur(4px);
       -webkit-backdrop-filter: blur(4px);
-      border-radius: 28px;
-      padding: 1.4rem 1.8rem 1.8rem;
+      border-radius: 20px;
+      padding: 14px 16px;
       border: 1px solid rgba(255, 255, 255, 0.7);
-      box-shadow: 0 6px 18px rgba(108, 99, 255, 0.04);
-      transition: 0.25s ease;
-    }
-
-    .card:hover {
-      background: rgba(255, 255, 255, 0.8);
-      box-shadow: 0 12px 30px rgba(108, 99, 255, 0.06);
-      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(108, 99, 255, 0.03);
     }
 
     .card-title {
-      font-size: 1.1rem;
+      font-size: 15px;
       font-weight: 700;
       color: #1a1a2e;
-      margin-bottom: 1rem;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .card-title i {
       color: #6C63FF;
-      font-size: 1.2rem;
-      width: 28px;
+      font-size: 14px;
+      width: 24px;
       text-align: center;
     }
 
     .project-item, .exp-item, .edu-item {
-      padding: 0.6rem 0;
+      padding: 6px 0;
       border-bottom: 1px solid rgba(108, 99, 255, 0.05);
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 6px 12px;
+      gap: 4px 8px;
+      font-size: 13px;
     }
 
     .project-item:last-child, .exp-item:last-child, .edu-item:last-child {
@@ -254,26 +266,43 @@
     }
 
     .project-desc {
-      font-size: 0.85rem;
+      font-size: 12px;
       color: #4a4870;
     }
 
     .badge-skill {
       background: rgba(108, 99, 255, 0.08);
-      padding: 0.2rem 0.9rem;
-      border-radius: 40px;
-      font-size: 0.75rem;
+      padding: 2px 12px;
+      border-radius: 30px;
+      font-size: 10px;
       font-weight: 600;
       color: #3d3b6b;
       border: 1px solid rgba(108, 99, 255, 0.05);
+      white-space: nowrap;
+    }
+
+    .skill-item {
+      margin-bottom: 8px;
+    }
+
+    .skill-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 500;
+      color: #1f1f3a;
     }
 
     .skill-bar {
       width: 100%;
-      height: 6px;
+      height: 5px;
       background: rgba(108, 99, 255, 0.10);
       border-radius: 20px;
-      margin: 6px 0 10px;
+      margin-top: 3px;
       overflow: hidden;
     }
 
@@ -285,70 +314,92 @@
       transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    .skill-item {
-      margin-bottom: 8px;
-    }
-
-    .skill-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #1f1f3a;
-    }
-
     .contact-row {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 0.4rem 0;
+      gap: 10px;
+      padding: 5px 0;
       color: #1f1f3a;
       text-decoration: none;
+      font-size: 13px;
       transition: 0.2s;
+      border-bottom: 1px solid rgba(108, 99, 255, 0.04);
+    }
+
+    .contact-row:last-child {
+      border-bottom: none;
     }
 
     .contact-row i {
-      width: 28px;
+      width: 24px;
       color: #6C63FF;
-      font-size: 1.1rem;
+      font-size: 14px;
       text-align: center;
     }
 
-    .contact-row:hover {
+    .contact-row:active {
       color: #6C63FF;
       transform: translateX(4px);
     }
 
     .footer-note {
-      margin-top: 2rem;
+      margin-top: 18px;
       text-align: center;
-      font-size: 0.8rem;
+      font-size: 11px;
       color: #7a78a0;
       border-top: 1px solid rgba(108, 99, 255, 0.06);
-      padding-top: 1.5rem;
+      padding-top: 14px;
     }
 
-    /* responsif */
-    @media (max-width: 780px) {
-      .container { padding: 1.2rem; }
-      .grid-2col { grid-template-columns: 1fr; gap: 1.2rem; }
-      .profile-header { flex-direction: column; align-items: center; text-align: center; }
-      .profile-text .sub { justify-content: center; }
-      .timeline-content { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
-      .timeline-row { padding: 0.8rem 1rem; }
-      .timeline-arrow { display: none; }
-    }
-
-    @media (max-width: 480px) {
-      .timeline-tags { gap: 0.2rem; }
-      .timeline-tag { font-size: 0.7rem; padding: 0.1rem 0.6rem; }
+    /* ===== RESPONSIF ===== */
+    @media (max-width: 400px) {
+      .container { padding: 12px; }
+      .profile-text h1 { font-size: 18px; }
+      .card { padding: 12px 14px; }
+      .card-title { font-size: 14px; }
+      .project-item, .exp-item, .edu-item { font-size: 12px; }
+      .dropdown-menu .menu-item { padding: 10px 16px; font-size: 13px; }
     }
   </style>
 </head>
 <body>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
   <div class="container">
 
-    <!-- HEADER PROFIL -->
+    <!-- HEADER DENGAN MENU HAMBURGER -->
+    <div class="header-menu">
+      <div class="logo">✦ <span>Profile</span></div>
+      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- DROPDOWN MENU (GARIS TIGA) -->
+    <div class="dropdown-menu" id="dropdownMenu">
+      <a class="menu-item" onclick="scrollToSection('tentang'); closeMenu();">
+        <i class="fas fa-user"></i> Tentang Saya
+      </a>
+      <a class="menu-item" onclick="scrollToSection('project'); closeMenu();">
+        <i class="fas fa-folder-open"></i> Project
+      </a>
+      <a class="menu-item" onclick="scrollToSection('keahlian'); closeMenu();">
+        <i class="fas fa-code"></i> Keahlian
+      </a>
+      <a class="menu-item" onclick="scrollToSection('pengalaman'); closeMenu();">
+        <i class="fas fa-star"></i> Pengalaman
+      </a>
+      <a class="menu-item" onclick="scrollToSection('pendidikan'); closeMenu();">
+        <i class="fas fa-graduation-cap"></i> Pendidikan
+      </a>
+      <a class="menu-item" onclick="scrollToSection('kontak'); closeMenu();">
+        <i class="fas fa-address-card"></i> Kontak
+      </a>
+    </div>
+
+    <!-- PROFIL HEADER -->
     <div class="profile-header">
       <div class="avatar">
         <img src="https://ui-avatars.com/api/?name=Naila+Afifah&background=6C63FF&color=fff&size=100&font-size=0.5" alt="Naila Afifah" />
@@ -363,134 +414,89 @@
       </div>
     </div>
 
-    <!-- ⏳ GARIS TIGA WAKTU (sesuai permintaan) -->
-    <div class="timeline-wrapper">
-      <!-- baris 1 : Project 💻 -->
-      <div class="timeline-row">
-        <div class="timeline-icon"><i class="fas fa-laptop-code"></i></div>
-        <div class="timeline-content">
-          <span class="timeline-label">💻 Project</span>
-          <div class="timeline-tags">
-            <span class="timeline-tag"><i class="fas fa-film"></i> Recomed</span>
-            <span class="timeline-tag"><i class="fas fa-brain"></i> Quiz App</span>
-            <span class="timeline-tag"><i class="fas fa-book"></i> Perpus</span>
-            <span class="timeline-tag"><i class="fas fa-spa"></i> Skincare</span>
-          </div>
-        </div>
-        <div class="timeline-arrow"><i class="fas fa-chevron-right"></i></div>
+    <!-- KONTEN SEMUA SECTION -->
+    <div class="content-section">
+
+      <!-- TENTANG SAYA -->
+      <div class="card" id="tentang">
+        <div class="card-title"><i class="fas fa-user"></i> Tentang Saya</div>
+        <p style="font-size:13px; color:#1f1f3a; line-height:1.6;">
+          Saya adalah mahasiswa informatika yang sedang belajar di dunia teknologi, 
+          dengan hobi membaca, jalan-jalan, dan menikmati keindahan alam, serta 
+          senang mencoba hal-hal baru. Saya juga tertarik untuk mengembangkan diri,
+          memperluas wawasan, dan terus belajar agar dapat mengikuti perkembangan teknologi.
+        </p>
       </div>
 
-      <!-- baris 2 : Keahlian ⭐ -->
-      <div class="timeline-row">
-        <div class="timeline-icon"><i class="fas fa-star"></i></div>
-        <div class="timeline-content">
-          <span class="timeline-label">⭐ Keahlian</span>
-          <div class="timeline-tags">
-            <span class="timeline-tag"><i class="fas fa-file-word"></i> Word 90%</span>
-            <span class="timeline-tag"><i class="fas fa-file-powerpoint"></i> PPT 85%</span>
-            <span class="timeline-tag"><i class="fab fa-html5"></i> HTML 70%</span>
-            <span class="timeline-tag"><i class="fab fa-css3-alt"></i> CSS 65%</span>
-            <span class="timeline-tag"><i class="fab fa-php"></i> PHP 40%</span>
-          </div>
+      <!-- PROJECT -->
+      <div class="card" id="project">
+        <div class="card-title"><i class="fas fa-folder-open"></i> Project</div>
+        <div class="project-item">
+          <span class="project-name">🎬 Recomed</span>
+          <span class="project-desc">Rekomendasi film</span>
         </div>
-        <div class="timeline-arrow"><i class="fas fa-chevron-right"></i></div>
-      </div>
-
-      <!-- baris 3 : Pengalaman & Pendidikan 🎓 (digabung sesuai keinginan) -->
-      <div class="timeline-row">
-        <div class="timeline-icon"><i class="fas fa-briefcase"></i></div>
-        <div class="timeline-content">
-          <span class="timeline-label">🎓 Pengalaman & Pendidikan</span>
-          <div class="timeline-tags">
-            <span class="timeline-tag"><i class="fas fa-users"></i> Organisasi</span>
-            <span class="timeline-tag"><i class="fas fa-hand-holding-heart"></i> PMR</span>
-            <span class="timeline-tag"><i class="fas fa-dance"></i> Tari</span>
-            <span class="timeline-tag"><i class="fas fa-university"></i> Univ. Jabal Ghafur</span>
-            <span class="timeline-tag"><i class="fas fa-school"></i> MAN 1 Pidie</span>
-          </div>
+        <div class="project-item">
+          <span class="project-name">🧠 Quiz App</span>
+          <span class="project-desc">Kuis multi-kategori</span>
         </div>
-        <div class="timeline-arrow"><i class="fas fa-chevron-right"></i></div>
-      </div>
-    </div>
-
-    <!-- KONTEN UTAMA 2 KOLOM : Project, Keahlian, Pengalaman, Pendidikan, Kontak -->
-    <div class="grid-2col">
-
-      <!-- KOLOM KIRI -->
-      <div class="left-col">
-        <!-- PROJECT -->
-        <div class="card">
-          <div class="card-title"><i class="fas fa-folder-open"></i> Project</div>
-          <div class="project-item">
-            <span class="project-name">🎬 Recomed</span>
-            <span class="project-desc">Rekomendasi film</span>
-          </div>
-          <div class="project-item">
-            <span class="project-name">🧠 Quiz App</span>
-            <span class="project-desc">Kuis multi-kategori</span>
-          </div>
-          <div class="project-item">
-            <span class="project-name">📚 Perpus App</span>
-            <span class="project-desc">Manajemen perpustakaan</span>
-          </div>
-          <div class="project-item">
-            <span class="project-name">🛍️ Skincare Store</span>
-            <span class="project-desc">E-commerce modern</span>
-          </div>
+        <div class="project-item">
+          <span class="project-name">📚 Perpus App</span>
+          <span class="project-desc">Manajemen perpustakaan</span>
         </div>
-
-        <!-- KEAHLIAN (⭐) -->
-        <div class="card">
-          <div class="card-title"><i class="fas fa-code"></i> Keahlian</div>
-          <div class="skill-item">
-            <div class="skill-label"><span>Microsoft Word</span><span>90%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:90%;"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-label"><span>PowerPoint</span><span>85%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:85%;"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-label"><span>HTML</span><span>70%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:70%;"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-label"><span>CSS</span><span>65%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:65%;"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-label"><span>PHP</span><span>40%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:40%;"></div></div>
-          </div>
+        <div class="project-item">
+          <span class="project-name">🛍️ Skincare Store</span>
+          <span class="project-desc">E-commerce modern</span>
         </div>
       </div>
 
-      <!-- KOLOM KANAN -->
-      <div class="right-col">
-        <!-- PENGALAMAN ⭐ (dengan ikon) -->
-        <div class="card">
-          <div class="card-title"><i class="fas fa-star"></i> Pengalaman</div>
-          <div class="exp-item"><span>📌 Organisasi Sekolah</span> <span class="badge-skill">kepemimpinan</span></div>
-          <div class="exp-item"><span>🚑 Palang Merah Remaja</span> <span class="badge-skill">pertolongan</span></div>
-          <div class="exp-item"><span>💃 Tari Tradisional</span> <span class="badge-skill">budaya</span></div>
+      <!-- KEAHLIAN -->
+      <div class="card" id="keahlian">
+        <div class="card-title"><i class="fas fa-code"></i> Keahlian</div>
+        <div class="skill-item">
+          <div class="skill-label"><span>Microsoft Word</span><span>90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%;"></div></div>
         </div>
+        <div class="skill-item">
+          <div class="skill-label"><span>PowerPoint</span><span>85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%;"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-label"><span>HTML</span><span>70%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:70%;"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-label"><span>CSS</span><span>65%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:65%;"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-label"><span>PHP</span><span>40%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:40%;"></div></div>
+        </div>
+      </div>
 
-        <!-- PENDIDIKAN 🎓 -->
-        <div class="card">
-          <div class="card-title"><i class="fas fa-graduation-cap"></i> Pendidikan</div>
-          <div class="edu-item"><span>🏛️ Universitas Jabal Ghafur</span> <span class="badge-skill">Teknik Informatika</span></div>
-          <div class="edu-item"><span>📖 MAN 1 Pidie</span> <span class="badge-skill">SMA</span></div>
-          <div class="edu-item"><span>📘 SMP Negeri 2 Sigli</span> <span class="badge-skill">SMP</span></div>
-          <div class="edu-item"><span>📗 SD Negeri 2 Teubeng</span> <span class="badge-skill">SD</span></div>
-        </div>
+      <!-- PENGALAMAN -->
+      <div class="card" id="pengalaman">
+        <div class="card-title"><i class="fas fa-star"></i> Pengalaman</div>
+        <div class="exp-item"><span>📌 Organisasi Sekolah</span> <span class="badge-skill">kepemimpinan</span></div>
+        <div class="exp-item"><span>🚑 Palang Merah Remaja</span> <span class="badge-skill">pertolongan</span></div>
+        <div class="exp-item"><span>💃 Tari Tradisional</span> <span class="badge-skill">budaya</span></div>
+      </div>
 
-        <!-- KONTAK 📞 -->
-        <div class="card">
-          <div class="card-title"><i class="fas fa-address-card"></i> Kontak</div>
-          <a href="mailto:nailaafifah25106@gmail.com" class="contact-row"><i class="fas fa-envelope"></i> nailaafifah25106@gmail.com</a>
-          <a href="https://instagram.com/naiilaafifah" target="_blank" class="contact-row"><i class="fab fa-instagram"></i> @naiilaafifah</a>
-          <a href="https://wa.me/6283197198448" target="_blank" class="contact-row"><i class="fab fa-whatsapp"></i> 0831-9719-8448</a>
-        </div>
+      <!-- PENDIDIKAN -->
+      <div class="card" id="pendidikan">
+        <div class="card-title"><i class="fas fa-graduation-cap"></i> Pendidikan</div>
+        <div class="edu-item"><span>🏛️ Univ. Jabal Ghafur</span> <span class="badge-skill">Teknik Informatika</span></div>
+        <div class="edu-item"><span>📖 MAN 1 Pidie</span> <span class="badge-skill">SMA</span></div>
+        <div class="edu-item"><span>📘 SMP Negeri 2 Sigli</span> <span class="badge-skill">SMP</span></div>
+        <div class="edu-item"><span>📗 SD Negeri 2 Teubeng</span> <span class="badge-skill">SD</span></div>
+      </div>
+
+      <!-- KONTAK -->
+      <div class="card" id="kontak">
+        <div class="card-title"><i class="fas fa-address-card"></i> Kontak</div>
+        <a href="mailto:nailaafifah25106@gmail.com" class="contact-row"><i class="fas fa-envelope"></i> nailaafifah25106@gmail.com</a>
+        <a href="https://instagram.com/naiilaafifah" target="_blank" class="contact-row"><i class="fab fa-instagram"></i> @naiilaafifah</a>
+        <a href="https://wa.me/6283197198448" target="_blank" class="contact-row"><i class="fab fa-whatsapp"></i> 0831-9719-8448</a>
       </div>
     </div>
 
@@ -499,5 +505,60 @@
     </div>
 
   </div>
+
+  <script>
+    // ===== FUNGSI MENU =====
+    function toggleMenu() {
+      const menu = document.getElementById('dropdownMenu');
+      const overlay = document.getElementById('overlay');
+      menu.classList.toggle('show');
+      overlay.classList.toggle('show');
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById('dropdownMenu');
+      const overlay = document.getElementById('overlay');
+      menu.classList.remove('show');
+      overlay.classList.remove('show');
+    }
+
+    // ===== SCROLL KE SECTION =====
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        const offset = 10;
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({
+          top: elementPosition - offset,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // ===== TUTUP MENU SAAT KLIK DI LUAR =====
+    document.addEventListener('click', function(event) {
+      const menu = document.getElementById('dropdownMenu');
+      const toggle = document.querySelector('.menu-toggle');
+      const overlay = document.getElementById('overlay');
+      
+      if (menu.classList.contains('show')) {
+        if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+          closeMenu();
+        }
+      }
+    });
+
+    // ===== TUTUP MENU SAAT SCROLL =====
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+      if (document.getElementById('dropdownMenu').classList.contains('show')) {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(closeMenu, 300);
+      }
+    });
+
+    console.log('✅ Menu garis tiga siap digunakan di HP!');
+  </script>
+
 </body>
 </html>

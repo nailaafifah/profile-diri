@@ -950,6 +950,34 @@ footer span {
     z-index: 999;
 }
 
+/* NAV ACTIONS - DESKTOP */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.icon-toggle-btn {
+    background: rgba(108, 99, 255, 0.08);
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    color: #000000;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.icon-toggle-btn:hover {
+    background: rgba(108, 99, 255, 0.15);
+    transform: scale(1.05);
+}
+
 /* DARK MODE */
 body.dark {
     --bg-start: #0F0A1A;
@@ -1123,6 +1151,10 @@ body.dark .edu-list li span {
     color: #000000;
 }
 
+body.dark .icon-toggle-btn {
+    color: #000000;
+}
+
 body.dark .hero .avatar-wrapper::before {
     opacity: 0 !important;
     filter: none !important;
@@ -1151,7 +1183,10 @@ body.dark .section-panel:hover::before {
         display:block;
         margin-left:auto;
     }
-}
+
+    .nav-actions{
+        display:none !important;
+    }
 
     .hero {
         min-height: 50vh;
@@ -1279,6 +1314,11 @@ body.dark .section-panel:hover::before {
         <li><a href="#contact" data-section="contact">Kontak</a></li>
     </ul>
 
+    <div class="nav-actions">
+        <button class="icon-toggle-btn" id="themeToggleBtn" onclick="toggleDark()" title="Ganti Mode Gelap/Terang">🌙 Gelap</button>
+        <button class="icon-toggle-btn" id="langToggleBtn" onclick="toggleLang()" title="Switch Language">🇬🇧 EN</button>
+    </div>
+
     <div class="menu mobile-only">
     <button onclick="toggleMenu()">☰</button>
 </div>
@@ -1335,8 +1375,8 @@ body.dark .section-panel:hover::before {
 <div class="content">
     <!-- TENTANG -->
     <section id="about" class="section-panel">
-        <h2>Tentang Saya</h2>
-        <p>Saya adalah mahasiswa informatika yang sedang belajar di dunia teknologi, 
+        <h2 id="aboutTitle">Tentang Saya</h2>
+        <p id="aboutText">Saya adalah mahasiswa informatika yang sedang belajar di dunia teknologi, 
         dengan hobi membaca, jalan-jalan, dan menikmati keindahan alam, serta 
         senang mencoba hal-hal baru. Saya juga tertarik untuk mengembangkan diri,
         memperluas wawasan, dan terus belajar agar dapat mengikuti perkembangan teknologi yang semakin pesat.
@@ -1509,6 +1549,17 @@ const projectData = {
     }
 };
 
+const aboutData = {
+    id: {
+        title: 'Tentang Saya',
+        text: 'Saya adalah mahasiswa informatika yang sedang belajar di dunia teknologi, dengan hobi membaca, jalan-jalan, dan menikmati keindahan alam, serta senang mencoba hal-hal baru. Saya juga tertarik untuk mengembangkan diri, memperluas wawasan, dan terus belajar agar dapat mengikuti perkembangan teknologi yang semakin pesat. Saya percaya bahwa setiap proses belajar adalah langkah penting untuk menjadi pribadi yang lebih baik dimasa depan, melalui setiap pengalaman yang saya jalani.'
+    },
+    en: {
+        title: 'About Me',
+        text: 'I am an informatics student learning about the world of technology, with hobbies like reading, traveling, and enjoying the beauty of nature, as well as a love for trying new things. I am also interested in developing myself, broadening my perspective, and continuously learning to keep up with the rapid pace of technological development. I believe that every learning process is an important step toward becoming a better person in the future, through every experience I go through.'
+    }
+};
+
 const expData = {
     id: {
         organisasi: {
@@ -1618,19 +1669,38 @@ function closeMenu(){
 // DARK MODE
 function toggleDark(){
     document.body.classList.toggle("dark");
+    const isDark = document.body.classList.contains("dark");
+    const btn = document.getElementById('themeToggleBtn');
+    if (btn) {
+        btn.textContent = isDark ? '☀️ Terang' : '🌙 Gelap';
+    }
 }
 
 // BAHASA
 let lang = "id";
 let currentSection = "about";
 
+function toggleLang(){
+    setLang(lang === 'id' ? 'en' : 'id');
+}
+
 function setLang(l){
     lang = l;
     updateContent();
     updateActiveNav(currentSection);
+
+    const langBtn = document.getElementById('langToggleBtn');
+    if (langBtn) {
+        langBtn.textContent = lang === 'id' ? '🇬🇧 EN' : '🇮🇩 ID';
+    }
 }
 
 function updateContent(){
+    const aboutTitle = document.getElementById('aboutTitle');
+    const aboutText = document.getElementById('aboutText');
+    if (aboutTitle) aboutTitle.textContent = aboutData[lang].title;
+    if (aboutText) aboutText.textContent = aboutData[lang].text;
+
     document.querySelectorAll('.project-card').forEach((card, index) => {
         const keys = ['recomed', 'quiz', 'perpus', 'skincare'];
         const key = keys[index];
@@ -1682,16 +1752,26 @@ function animateSkills() {
 }
 
 // SCROLL TO SECTION
+let isManualScroll = false;
+let manualScrollTimeout = null;
+
 function scrollToSection(id) {
+    isManualScroll = true;
+    updateActiveNav(id);
+
     const section = document.getElementById(id);
     if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
     }
-    updateActiveNav(id);
-    
+
     if (id === 'skill') {
         animateSkills();
     }
+
+    clearTimeout(manualScrollTimeout);
+    manualScrollTimeout = setTimeout(function () {
+        isManualScroll = false;
+    }, 1000);
 }
 
 // UPDATE ACTIVE NAV
@@ -1709,6 +1789,7 @@ function updateActiveNav(id) {
 const sections = document.querySelectorAll('.section-panel');
 
 const observer = new IntersectionObserver((entries) => {
+    if (isManualScroll) return;
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const id = entry.target.id;

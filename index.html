@@ -73,16 +73,17 @@ nav{
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255,255,255,.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
+
     padding: 12px 8%;
     z-index: 1000;
-    border-bottom: 1px solid rgba(108, 99, 255, 0.08);
-    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(108,99,255,.08);
+    transition: .3s;
 }
 
 nav:hover {
@@ -108,6 +109,10 @@ nav ul{
     list-style: none;
     display: flex;
     gap: 4px;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 nav ul li a{
@@ -1136,14 +1141,17 @@ body.dark .section-panel:hover::before {
     display: none;
 }
 
-@media (max-width: 768px) {
-    nav ul {
-        display: none !important;
+@media (max-width:768px){
+
+    nav ul{
+        display:none !important;
     }
 
-    .mobile-only {
-        display: block;
+    .mobile-only{
+        display:block;
+        margin-left:auto;
     }
+}
 
     .hero {
         min-height: 50vh;
@@ -1271,9 +1279,9 @@ body.dark .section-panel:hover::before {
         <li><a href="#contact" data-section="contact">Kontak</a></li>
     </ul>
 
-    <div class="menu">
-        <button onclick="toggleMenu()">☰</button>
-    </div>
+    <div class="menu mobile-only">
+    <button onclick="toggleMenu()">☰</button>
+</div>
 </nav>
 
 <!-- OVERLAY -->
@@ -1312,6 +1320,7 @@ body.dark .section-panel:hover::before {
 </div>
 
 <header class="hero">
+
     <div class="avatar-wrapper" onclick="openModal()">
         <div class="inner-border"></div>
         <img id="profileImg" src="na.jpg" onerror="this.src='https://via.placeholder.com/150'" alt="Foto Profil">

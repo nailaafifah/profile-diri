@@ -1408,6 +1408,17 @@ body.dark .section-panel:hover::before {
                 <p>Toko online dengan promo, keranjang belanja, dan checkout via WhatsApp.</p>
                 <button class="btn-project" onclick="event.stopPropagation(); openDetailModal('project', projectData['id']['skincare'])">📖 Baca Detail</button>
             </div>
+            <div class="project-card" onclick="openDetailModal('project', projectData['id']['sidesa'])">
+                <h3>🏘️ Sidesa</h3>
+                <p>Sistem Informasi Desa berbasis web untuk mengelola data penduduk, surat, dan potensi desa.</p>
+                <button class="btn-project" onclick="event.stopPropagation(); openDetailModal('project', projectData['id']['sidesa'])">📖 Baca Detail</button>
+            </div>
+            <!-- PROJECT TIMETRAVELERAI -->
+            <div class="project-card" onclick="openDetailModal('project', projectData['id']['timetraveler'])">
+                <h3>⏳ TimeTravelerAI</h3>
+                <p>Platform eksplorasi sejarah interaktif berbasis AI dengan 8 era dan pemandu cerdas.</p>
+                <button class="btn-project" onclick="event.stopPropagation(); openDetailModal('project', projectData['id']['timetraveler'])">📖 Baca Detail</button>
+            </div>
         </div>
     </section>
 
@@ -1519,6 +1530,18 @@ const projectData = {
             title: 'Skincare Store - E-Commerce',
             desc: 'Toko online modern yang menyediakan berbagai produk pakaian wanita, pakaian pria, dan aksesoris. Dilengkapi dengan fitur produk promo, keranjang belanja, dan checkout langsung melalui WhatsApp untuk kemudahan transaksi.',
             link: 'https://nailaafifah.github.io/skincare_store/'
+        },
+        sidesa: {
+            icon: '🏘️',
+            title: 'Sidesa - Sistem Informasi Desa',
+            desc: 'Aplikasi Sistem Informasi Desa berbasis web yang dirancang untuk membantu perangkat desa dalam mengelola data administrasi kependudukan, pembuatan surat menyurat, pendataan potensi desa, dan pengelolaan keuangan desa secara digital dan terintegrasi.',
+            link: 'https://nailaafifah.github.io/sidesa/'
+        },
+        timetraveler: {
+            icon: '⏳',
+            title: 'TimeTravelerAI - Chat Sejarah Interaktif',
+            desc: 'Platform eksplorasi sejarah interaktif berbasis AI. Jelajahi 8 era sejarah, dari Mesir Kuno hingga masa depan 3000, dengan pemandu AI yang dapat diajak bicara. Dilengkapi dengan galeri visual, kuis pengetahuan, dan riwayat chat tersimpan.',
+            link: 'https://webtimetravelerai.infinityfreeapp.com/'
         }
     },
     en: {
@@ -1545,6 +1568,18 @@ const projectData = {
             title: 'Skincare Store - E-Commerce',
             desc: 'A modern online store that provides various products for women\'s clothing, men\'s clothing, and accessories. Equipped with promotional products, shopping cart, and direct checkout via WhatsApp for transaction convenience.',
             link: 'https://nailaafifah.github.io/skincare_store/'
+        },
+        sidesa: {
+            icon: '🏘️',
+            title: 'Sidesa - Village Information System',
+            desc: 'A web-based Village Information System application designed to help village officials manage population administration data, correspondence, village potential data collection, and village financial management digitally and integrated.',
+            link: 'https://nailaafifah.github.io/sidesa/'
+        },
+        timetraveler: {
+            icon: '⏳',
+            title: 'TimeTravelerAI - Interactive History Chat',
+            desc: 'An AI-powered interactive history exploration platform. Explore 8 historical eras, from Ancient Egypt to the future 3000, with an AI guide you can chat with. Equipped with visual galleries, knowledge quizzes, and saved chat history.',
+            link: 'https://webtimetravelerai.infinityfreeapp.com/'
         }
     }
 };
@@ -1701,14 +1736,18 @@ function updateContent(){
     if (aboutTitle) aboutTitle.textContent = aboutData[lang].title;
     if (aboutText) aboutText.textContent = aboutData[lang].text;
 
+    // Update project cards - TAMBAHKAN 'timetraveler' ke dalam array
+    const projectKeys = ['recomed', 'quiz', 'perpus', 'skincare', 'sidesa', 'timetraveler'];
     document.querySelectorAll('.project-card').forEach((card, index) => {
-        const keys = ['recomed', 'quiz', 'perpus', 'skincare'];
-        const key = keys[index];
+        const key = projectKeys[index];
         if (key) {
             const data = projectData[lang][key];
             if (data) {
-                card.querySelector('h3').textContent = data.icon + ' ' + data.title.split(' - ')[0];
-                card.querySelector('p').textContent = data.desc.split('.')[0] + '.';
+                const titleParts = data.title.split(' - ');
+                const shortTitle = titleParts.length > 1 ? titleParts[0] : data.title;
+                card.querySelector('h3').textContent = data.icon + ' ' + shortTitle;
+                const descParts = data.desc.split('.');
+                card.querySelector('p').textContent = descParts[0] + '.';
                 const btn = card.querySelector('.btn-project');
                 btn.textContent = lang === 'id' ? '📖 Baca Detail' : '📖 Read More';
                 card.onclick = function() { openDetailModal('project', data); };
